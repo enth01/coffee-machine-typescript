@@ -36,11 +36,12 @@ export class CoffeeMachine {
       cost = 0;
     }
 
-    if (cost <= 0) {
+    if (cost < 0) {
       return "Error: invalid price";
     }
 
-    if (moneyInserted < cost) {
+    if (moneyInserted < Number(cost.toFixed(2))) {
+      console.log(cost);
       return "Not enough money";
     } else if (moneyInserted > cost) {
       let change = moneyInserted - cost;
